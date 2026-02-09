@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+    <AssemblyName>NRUAGuestManager</AssemblyName>
+    <RootNamespace>NRUAGuestManager</RootNamespace>
+    <Version>1.0.0</Version>
+    <Authors>NRUA Helper</Authors>
+    <Product>NRUA Guest Manager</Product>
+    <Description>Gestor de huéspedes para depósito de arrendamientos de corta duración (España)</Description>
+  </PropertyGroup>
+
+</Project>
