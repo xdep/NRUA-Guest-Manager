@@ -654,19 +654,30 @@ namespace NRUAGuestManager
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            var form = new MainForm();
-            if (!form.CheckLicense())
+            try
+            {
+                var form = new MainForm();
+                if (!form.CheckLicense())
+                {
+                    MessageBox.Show(
+                        "Se requiere una licencia válida para usar NRUA Guest Manager.",
+                        "Licencia requerida",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                    return;
+                }
+
+                form.Text = "NRUA Guest Manager - Gestor de Huéspedes [Licenciado]";
+                Application.Run(form);
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(
-                    "Se requiere una licencia válida para usar NRUA Guest Manager.",
-                    "Licencia requerida",
+                    $"Error al iniciar la aplicación:\n\n{ex}",
+                    "Error",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
-                return;
             }
-
-            form.Text = "NRUA Guest Manager - Gestor de Huéspedes [Licenciado]";
-            Application.Run(form);
         }
     }
 }
