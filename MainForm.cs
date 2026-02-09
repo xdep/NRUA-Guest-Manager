@@ -140,27 +140,47 @@ namespace NRUAGuestManager
 
         private void SetupDataGridView()
         {
-            dataGridView.DataSource = guestData;
+            // Manually define columns instead of relying on auto-generation
+            dataGridView.AutoGenerateColumns = false;
 
-            // Configure columns
-            dataGridView.Columns["NRUA"].HeaderText = "NRUA";
-            dataGridView.Columns["NRUA"].Width = 300;
-            dataGridView.Columns["NRUA"].ToolTipText = "Ejemplo: ESHFTU00004501300027277450000000000000000000000000008";
+            dataGridView.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "NRUA",
+                HeaderText = "NRUA",
+                DataPropertyName = "NRUA",
+                Width = 300,
+                ToolTipText = "Ejemplo: ESHFTU00004501300027277450000000000000000000000000008"
+            });
 
-            dataGridView.Columns["Fecha_Entrada"].HeaderText = "Check-in";
-            dataGridView.Columns["Fecha_Entrada"].DefaultCellStyle.Format = "dd/MM/yyyy";
+            dataGridView.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "Fecha_Entrada",
+                HeaderText = "Check-in",
+                DataPropertyName = "Fecha_Entrada",
+                DefaultCellStyle = { Format = "dd/MM/yyyy" }
+            });
 
-            dataGridView.Columns["Fecha_Salida"].HeaderText = "Check-out";
-            dataGridView.Columns["Fecha_Salida"].DefaultCellStyle.Format = "dd/MM/yyyy";
+            dataGridView.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "Fecha_Salida",
+                HeaderText = "Check-out",
+                DataPropertyName = "Fecha_Salida",
+                DefaultCellStyle = { Format = "dd/MM/yyyy" }
+            });
 
-            dataGridView.Columns["Huespedes"].HeaderText = "Nº Huéspedes";
-            dataGridView.Columns["Huespedes"].Width = 100;
+            dataGridView.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "Huespedes",
+                HeaderText = "Nº Huéspedes",
+                DataPropertyName = "Huespedes",
+                Width = 100
+            });
 
-            // Finalidad dropdown
-            var finalidadCol = new DataGridViewComboBoxColumn
+            dataGridView.Columns.Add(new DataGridViewComboBoxColumn
             {
                 Name = "Finalidad",
                 HeaderText = "Finalidad",
+                DataPropertyName = "Finalidad",
                 DataSource = new[]
                 {
                     "Vacacional/Turístico",
@@ -168,13 +188,18 @@ namespace NRUAGuestManager
                     "Estudios",
                     "Causas médicas",
                     "Otros"
-                },
-                DataPropertyName = "Finalidad"
-            };
-            dataGridView.Columns.Remove("Finalidad");
-            dataGridView.Columns.Insert(4, finalidadCol);
+                }
+            });
 
-            dataGridView.Columns["Codigo_Finalidad"].Visible = false;
+            // Hidden column
+            dataGridView.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "Codigo_Finalidad",
+                DataPropertyName = "Codigo_Finalidad",
+                Visible = false
+            });
+
+            dataGridView.DataSource = guestData;
 
             // Event handlers
             dataGridView.CellValueChanged += DataGridView_CellValueChanged;
