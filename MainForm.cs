@@ -551,12 +551,122 @@ namespace NRUAGuestManager
             }
         }
 
+        private bool CheckLicense()
+        {
+            // Try to read stored license key
+            string storedKey = LicenseValidator.ReadStoredKey();
+            if (storedKey != null && LicenseValidator.IsValidKey(storedKey))
+            {
+                return true;
+            }
+
+            // Prompt user for license key
+            return ShowLicenseDialog();
+        }
+
+        private bool ShowLicenseDialog()
+        {
+            using var dialog = new Form
+            {
+                Text = "NRUA Guest Manager - Activación de Licencia",
+                Size = new Size(500, 250),
+                StartPosition = FormStartPosition.CenterScreen,
+                FormBorderStyle = FormBorderStyle.FixedDialog,
+                MaximizeBox = false,
+                MinimizeBox = false
+            };
+
+            var lblPrompt = new Label
+            {
+                Text = "Introduzca su clave de licencia:",
+                Location = new Point(20, 20),
+                Size = new Size(440, 20)
+            };
+
+            var lblFormat = new Label
+            {
+                Text = "Formato: NRUA-XXXX-XXXX-XXXX-XXXX",
+                Location = new Point(20, 45),
+                Size = new Size(440, 20),
+                ForeColor = Color.Gray
+            };
+
+            var txtKey = new TextBox
+            {
+                Location = new Point(20, 75),
+                Size = new Size(340, 25),
+                Font = new Font("Consolas", 12),
+                CharacterCasing = CharacterCasing.Upper
+            };
+
+            var lblStatus = new Label
+            {
+                Location = new Point(20, 110),
+                Size = new Size(440, 20),
+                ForeColor = Color.Red
+            };
+
+            var btnActivate = new Button
+            {
+                Text = "Activar",
+                Location = new Point(370, 73),
+                Size = new Size(90, 30)
+            };
+
+            var btnCancel = new Button
+            {
+                Text = "Cancelar",
+                Location = new Point(370, 110),
+                Size = new Size(90, 30),
+                DialogResult = DialogResult.Cancel
+            };
+
+            bool activated = false;
+
+            btnActivate.Click += (s, e) =>
+            {
+                string key = txtKey.Text.Trim();
+                if (LicenseValidator.IsValidKey(key))
+                {
+                    LicenseValidator.SaveKey(key);
+                    activated = true;
+                    dialog.DialogResult = DialogResult.OK;
+                    dialog.Close();
+                }
+                else
+                {
+                    lblStatus.Text = "Clave de licencia no válida. Verifique e intente de nuevo.";
+                    lblStatus.ForeColor = Color.Red;
+                }
+            };
+
+            dialog.Controls.AddRange(new Control[] { lblPrompt, lblFormat, txtKey, lblStatus, btnActivate, btnCancel });
+            dialog.AcceptButton = btnActivate;
+            dialog.CancelButton = btnCancel;
+            dialog.ShowDialog();
+
+            return activated;
+        }
+
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+
+            var form = new MainForm();
+            if (!form.CheckLicense())
+            {
+                MessageBox.Show(
+                    "Se requiere una licencia válida para usar NRUA Guest Manager.",
+                    "Licencia requerida",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
+
+            form.Text = "NRUA Guest Manager - Gestor de Huéspedes [Licenciado]";
+            Application.Run(form);
         }
     }
 }

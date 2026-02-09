@@ -1,0 +1,31 @@
+## .NET / C#
+bin/
+obj/
+publish/
+*.user
+*.suo
+*.cache
+*.dll
+*.exe
+*.pdb
+
+## Build output
+out/
+build/
+dist/
+
+## IDE
+.vs/
+.vscode/
+*.sln.docstates
+
+## InnoSetup output
+installer/Output/
+
+## OS
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+## Secrets - never commit generated keys
+*.keys

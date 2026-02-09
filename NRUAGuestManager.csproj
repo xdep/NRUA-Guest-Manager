@@ -2,15 +2,30 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net8.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
-    <!-- <ApplicationIcon>icon.ico</ApplicationIcon> -->
+    <ApplicationIcon>icon.ico</ApplicationIcon>
     <AssemblyName>NRUAGuestManager</AssemblyName>
     <RootNamespace>NRUAGuestManager</RootNamespace>
+
+    <!-- Branding -->
     <Version>1.0.0</Version>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <InformationalVersion>1.0.0</InformationalVersion>
     <Authors>NRUA Helper</Authors>
+    <Company>NRUA Helper</Company>
     <Product>NRUA Guest Manager</Product>
+    <Copyright>Copyright © 2024 NRUA Helper. Todos los derechos reservados.</Copyright>
     <Description>Gestor de huéspedes para depósito de arrendamientos de corta duración (España)</Description>
+    <NeutralLanguage>es-ES</NeutralLanguage>
+
+    <!-- Publish settings for self-contained single-file -->
+    <PublishSingleFile>true</PublishSingleFile>
+    <SelfContained>true</SelfContained>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <PublishTrimmed>true</PublishTrimmed>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
   </PropertyGroup>
 
 </Project>

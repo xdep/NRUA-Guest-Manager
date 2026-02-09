@@ -1,0 +1,37 @@
+ACUERDO DE LICENCIA DE USUARIO FINAL (EULA)
+NRUA Guest Manager v1.0.0
+Copyright © 2024 NRUA Helper. Todos los derechos reservados.
+
+IMPORTANTE: LEA ATENTAMENTE ESTE ACUERDO ANTES DE INSTALAR O UTILIZAR EL SOFTWARE.
+
+Al instalar, copiar o utilizar este software, usted acepta los términos de este acuerdo. Si no está de acuerdo, no instale ni utilice el software.
+
+1. CONCESIÓN DE LICENCIA
+NRUA Helper le concede una licencia personal, no exclusiva e intransferible para instalar y utilizar NRUA Guest Manager ("el Software") en un (1) ordenador. La clave de licencia proporcionada es válida para una única instalación.
+
+2. RESTRICCIONES
+Usted NO podrá:
+- Copiar, distribuir o compartir el Software o su clave de licencia con terceros.
+- Modificar, descompilar, desensamblar o realizar ingeniería inversa del Software.
+- Sublicenciar, alquilar o prestar el Software.
+- Eliminar o alterar avisos de propiedad intelectual del Software.
+
+3. PROPIEDAD INTELECTUAL
+El Software y toda la documentación asociada son propiedad de NRUA Helper y están protegidos por las leyes de propiedad intelectual españolas e internacionales.
+
+4. PRIVACIDAD Y DATOS
+El Software procesa datos de huéspedes localmente en su ordenador. No se transmiten datos a servidores externos. La validación de la licencia se realiza completamente offline. Usted es responsable del cumplimiento del Reglamento General de Protección de Datos (RGPD) en el tratamiento de datos personales de huéspedes.
+
+5. LIMITACIÓN DE RESPONSABILIDAD
+El Software se proporciona "tal cual". NRUA Helper no será responsable de daños directos, indirectos, incidentales o consecuentes derivados del uso o la imposibilidad de uso del Software. El usuario es responsable de verificar que los datos exportados cumplen con los requisitos del Real Decreto 1312/2024.
+
+6. SOPORTE
+Esta licencia incluye soporte técnico básico por correo electrónico durante un período de 12 meses desde la fecha de compra.
+
+7. TERMINACIÓN
+Esta licencia es efectiva hasta que sea terminada. Se terminará automáticamente si usted incumple cualquiera de sus términos. Al terminarse, deberá destruir todas las copias del Software.
+
+8. LEY APLICABLE
+Este acuerdo se rige por las leyes del Reino de España. Cualquier disputa será sometida a los tribunales competentes de España.
+
+Al hacer clic en "Acepto" o al instalar el Software, usted reconoce que ha leído, entendido y acepta los términos de este acuerdo.
