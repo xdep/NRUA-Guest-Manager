@@ -166,11 +166,6 @@ begin
 
   // HMAC = SHA256(opad + SHA256(ipad + data))
   inner := ComputeSHA256(ipad + data);
-  Result := ComputeHMACSHA256_Finish(opad, inner);
-end;
-
-function ComputeHMACSHA256_Finish(opad, inner: AnsiString): AnsiString;
-begin
   Result := ComputeSHA256(opad + inner);
 end;
 
