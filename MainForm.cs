@@ -38,7 +38,7 @@ namespace NRUAGuestManager
             var exportN2 = new ToolStripMenuItem("Exportar para N2...", null, (s, e) => ExportForN2());
             var exit = new ToolStripMenuItem("Salir", null, (s, e) => Application.Exit());
 
-            fileMenu.DropDownItems.AddRange(new[] { newFile, openFile, saveFile, saveAs, 
+            fileMenu.DropDownItems.AddRange(new ToolStripItem[] { newFile, openFile, saveFile, saveAs,
                 new ToolStripSeparator(), exportN2, new ToolStripSeparator(), exit });
             menuStrip.Items.Add(fileMenu);
             this.MainMenuStrip = menuStrip;
