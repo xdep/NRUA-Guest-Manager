@@ -25,6 +25,9 @@ jobs:
       - name: Publish self-contained exe
         run: dotnet publish -c Release -r win-x64 --self-contained true -o publish
 
+      - name: Publish KeyGenerator
+        run: dotnet publish tools/KeyGenerator/KeyGenerator.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -o keygen
+
       - name: Install InnoSetup
         run: choco install innosetup -y --no-progress
 
@@ -38,6 +41,12 @@ jobs:
           name: NRUAGuestManager-exe
           path: publish/NRUAGuestManager.exe
 
+      - name: Upload KeyGenerator artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: NRUAKeyGenerator
+          path: keygen/NRUAKeyGenerator.exe
+
       - name: Upload installer artifact
         uses: actions/upload-artifact@v4
         with:
@@ -50,6 +59,7 @@ jobs:
         with:
           files: |
             publish/NRUAGuestManager.exe
+            keygen/NRUAKeyGenerator.exe
             installer/Output/*.exe
-          draft: true
+          draft: false
           generate_release_notes: true
